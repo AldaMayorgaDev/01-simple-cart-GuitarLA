@@ -69,7 +69,7 @@ guitarla/
 1. Clona el repositorio:
 
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/AldaMayorgaDev/01-simple-cart-GuitarLA.git
    cd guitarla
    ```
 
