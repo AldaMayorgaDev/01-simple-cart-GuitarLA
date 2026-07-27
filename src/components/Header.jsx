@@ -1,39 +1,12 @@
-import {useMemo} from "react";
-
 function Header({
   cart,
   removeFromCart,
   incrementQuality,
   decrementQuality,
   clearCart,
+  cartIsEmpty,
+  cartTotal,
 }) {
-  /* 
-  ============================================
-    STATE DERIVADO (Derived State)
-  ============================================
-    Se le llama "state derivado" porque estos valores
-    NO son un state independiente (no usan useState),
-    sino que se CALCULAN a partir de otro state (cart).
-    Es una buena práctica evitar crear un state nuevo
-    cuando su valor se puede obtener a partir de uno
-    que ya existe. 
-  */
-
-  /* useMemo() memoriza (cachea) el resultado de un cálculo
-    y solo lo vuelve a ejecutar cuando alguna de sus
-    dependencias cambia (el arreglo del segundo argumento).
-*/
-  const cartIsEmpty = useMemo(() => cart.length === 0, [cart]);
-
-  const cartTotal = useMemo(
-    () =>
-      cart.reduce((total, item) => {
-        // prettier-ignore
-        return total + (item.quantity * item.price);
-      }, 0),
-    [cart],
-  );
-
   return (
     <header className="py-5 header">
       <div className="container-xl">
